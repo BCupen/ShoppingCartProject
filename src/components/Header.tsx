@@ -7,7 +7,7 @@ export default function Header({onOpen}: NavBarProps) {
   return (
     <HStack
       bgColor="brand.charcoal"
-      w="100vw"
+      w="full"
       h='15vh'
       justifyContent="space-between"
       px="4"

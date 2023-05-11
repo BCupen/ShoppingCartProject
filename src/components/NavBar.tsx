@@ -1,17 +1,18 @@
 import { HStack, Link, Heading, IconButton } from "@chakra-ui/react";
 import { CartIcon } from "../assets/Icons";
 import { NavBarProps } from "../interfaces";
+import { Link as RouterLink} from "react-router-dom";
 
 
 export default function NavBar({onOpen}: NavBarProps) {
   return (
     <HStack spacing="67px" color="brand.cream">
-      <Link _hover={{
+      <Link as={RouterLink} to='/' _hover={{
         color: 'brand.tan'
       }}>
         <Heading fontSize="32px">Home</Heading>
       </Link>
-      <Link _hover={{
+      <Link as={RouterLink} to='/shop' _hover={{
         color: 'brand.tan'
       }}>
         <Heading fontSize="32px">Shop</Heading>

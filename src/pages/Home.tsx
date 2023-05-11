@@ -11,7 +11,7 @@ import animalImg from "../assets/animals.svg";
 
 export default function Home() {
   return (
-    <Center w="full" h="full">
+    <VStack w="100vw" alignItems='stretch'>
       <HStack mx="8rem" mt="20">
         <VStack alignItems="start" w="500px">
           <Text
@@ -46,6 +46,6 @@ export default function Home() {
         </VStack>
         <Image src={animalImg} alt="Animals" w="635px" h="420px" />
       </HStack>
-    </Center>
+    </VStack>
   );
 }

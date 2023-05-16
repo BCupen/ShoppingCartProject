@@ -1,7 +1,7 @@
 
 export interface CartItem {
     name: string
-    amt: string
+    cost: string
     imgSrc: string
     qty: number
 }
@@ -13,7 +13,7 @@ export interface NavBarProps{
 export interface CartProps {
     isOpen: boolean;
     onClose: () => void;
-    cartItems: CartItem[];
+    cartItems?: CartItem[];
 }
 
 export interface ShopProps{
@@ -29,4 +29,12 @@ export interface ProductItemProps{
 
 export interface ProductsProps{
     products: ProductItemProps[];
+}
+
+export interface CartProviderProps {
+    children: React.ReactNode;
+}
+
+export interface QuantityProps{
+    onQtyChange: (value: number) => void
 }

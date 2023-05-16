@@ -1,12 +1,14 @@
 import { useNumberInput, Button, Input, HStack } from "@chakra-ui/react";
+import { QuantityProps } from "../interfaces";
 
-export default function Quantity() {
+export default function Quantity({ onQtyChange }: QuantityProps) {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,
       defaultValue: 1,
       min: 1,
       max: 10,
+      onChange: (stringValue, numValue) => onQtyChange(numValue)
     });
 
   const inc = getIncrementButtonProps();
@@ -30,7 +32,7 @@ export default function Quantity() {
   return (
     <HStack flex='1' spacing='0' >
       <Button {...dec} {...buttonStyle} >-</Button>
-      <Input {...input} w='25px' maxH='25px' fontSize='xs' p='0' textAlign='center'/>
+      <Input {...input} w='25px' maxH='25px' fontSize='xs' p='0' textAlign='center' onChange={(e) => console.log(e)}/>
       <Button {...inc} {...buttonStyle}>+</Button>
     </HStack>
   );

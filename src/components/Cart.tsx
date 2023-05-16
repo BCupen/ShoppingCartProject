@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Button,
   Drawer,
@@ -10,9 +11,12 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { CartProps } from "../interfaces";
+import { CartItem as ICartItem, CartProps } from "../interfaces";
+import { CartContext } from "./CartProvider";
+import CartItem from "./CartItem";
 
 export default function Cart({ isOpen, onClose, ...props }: CartProps) {
+  const [cart, addItemToCart] = useContext(CartContext);
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="sm">
       <DrawerOverlay />
@@ -22,7 +26,11 @@ export default function Cart({ isOpen, onClose, ...props }: CartProps) {
           Your Cart
         </DrawerHeader>
 
-        <DrawerBody></DrawerBody>
+        <DrawerBody>
+          {cart.map((item: ICartItem) =>
+            <CartItem {...item} />
+          )}
+        </DrawerBody>
 
         <DrawerFooter
           alignItems="center"

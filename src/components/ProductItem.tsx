@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { ProductItemProps } from "../interfaces";
 import Quantity from "./Quantity";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "./CartProvider";
 
 export default function ProductItem({
   name,
@@ -19,6 +21,16 @@ export default function ProductItem({
   category,
   ...props
 }: ProductItemProps) {
+  const [cart, addItemToCart] = useContext(CartContext);
+  const [qty, setQty]= useState(1);
+
+
+  const addToCart = () =>{
+    const item = {
+        name, cost, imgSrc, qty 
+    }
+    addItemToCart(item);
+  }
   return (
     <Card
       w="270px"
@@ -34,13 +46,22 @@ export default function ProductItem({
         <Heading fontFamily="Roboto" fontSize="20px" fontWeight="semibold">
           {name}
         </Heading>
-        <Text color='brand.tan'>${cost}TTD</Text>
+        <Text color="brand.tan">${cost}TTD</Text>
       </CardBody>
-      <CardFooter pt="0" pb="10px" px='0' justifyContent='center'>
-        <HStack justifyContent='space-between'>
-            <Button variant="solid" flex='2' bg='brand.tan' color='brand.cream' borderRadius='15px'>Add to Cart</Button>
-            <Quantity />
-        </HStack>        
+      <CardFooter pt="0" pb="10px" px="0" justifyContent="center">
+        <HStack justifyContent="space-between">
+          <Button
+            variant="solid"
+            flex="2"
+            bg="brand.tan"
+            color="brand.cream"
+            borderRadius="15px"
+            onClick={addToCart}
+          >
+            Add to Cart
+          </Button>
+          <Quantity onQtyChange={setQty}/>
+        </HStack>
       </CardFooter>
     </Card>
   );

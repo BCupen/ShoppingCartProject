@@ -1,5 +1,6 @@
 
 export interface CartItem {
+    key: string
     name: string
     cost: string
     imgSrc: string
@@ -21,6 +22,7 @@ export interface ShopProps{
 }
 
 export interface ProductItemProps{
+    key: string;
     name: string;
     cost: string;
     imgSrc: string;
@@ -36,5 +38,6 @@ export interface CartProviderProps {
 }
 
 export interface QuantityProps{
+    value?: number;
     onQtyChange: (value: number) => void
 }

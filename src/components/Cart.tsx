@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect,useState } from "react";
 import {
   Button,
   Drawer,
@@ -17,6 +17,21 @@ import CartItem from "./CartItem";
 
 export default function Cart({ isOpen, onClose, ...props }: CartProps) {
   const [cart, addItemToCart] = useContext(CartContext);
+  const [total, setTotal] = useState(0);
+
+  const calculateTotal = () =>{
+    let total = 0;
+    for(const item of cart){
+      const amt = parseInt(item.cost) * item.qty;
+      total += amt;
+    }
+    return total;
+  }
+
+  useEffect(()=>{
+    setTotal(calculateTotal());
+  }, [cart])
+
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="sm">
       <DrawerOverlay />
@@ -27,8 +42,8 @@ export default function Cart({ isOpen, onClose, ...props }: CartProps) {
         </DrawerHeader>
 
         <DrawerBody>
-          {cart.map((item: ICartItem) =>
-            <CartItem {...item} />
+          {cart.map((item: ICartItem, index: number) =>
+            <CartItem item={item} index={index} />
           )}
         </DrawerBody>
 
@@ -41,7 +56,7 @@ export default function Cart({ isOpen, onClose, ...props }: CartProps) {
             <Text>
               Total:{" "}
               <Text color="brand.tan" display="inline">
-                $100TTD
+                ${total}TTD
               </Text>
             </Text>
             <Button

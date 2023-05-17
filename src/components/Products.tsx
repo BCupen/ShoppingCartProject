@@ -8,7 +8,7 @@ export default function Products({products, ...props}: ProductsProps) {
       {products.map((product) => {
         return (
           <WrapItem>
-            <ProductItem {...product} />
+            <ProductItem product={product} />
           </WrapItem>
         );
       })}

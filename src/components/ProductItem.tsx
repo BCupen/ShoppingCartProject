@@ -14,23 +14,31 @@ import Quantity from "./Quantity";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartProvider";
 
+interface PProps{
+    product: ProductItemProps
+}
+
 export default function ProductItem({
-  name,
-  cost,
-  imgSrc,
-  category,
+  product,
   ...props
-}: ProductItemProps) {
-  const [cart, addItemToCart] = useContext(CartContext);
+}: PProps) {
+  const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
   const [qty, setQty]= useState(1);
 
+    const {key, name, cost, imgSrc, category} = product
 
   const addToCart = () =>{
     const item = {
-        name, cost, imgSrc, qty 
+        key, name, cost, imgSrc, qty 
     }
-    addItemToCart(item);
+    const index = getCartIndex(key);
+    if(index === -1)
+        addItemToCart(item);
+    else{
+        updateItemQty(key, qty);
+    }
   }
+  
   return (
     <Card
       w="270px"

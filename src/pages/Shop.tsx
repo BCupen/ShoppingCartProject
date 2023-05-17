@@ -10,7 +10,6 @@ export default function Shop(){
 
     const usePathname = () =>{
         const location = useLocation();
-        console.log(location.pathname);
         return location.pathname;
     }
 

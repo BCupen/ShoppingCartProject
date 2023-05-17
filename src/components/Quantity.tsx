@@ -1,7 +1,7 @@
 import { useNumberInput, Button, Input, HStack } from "@chakra-ui/react";
 import { QuantityProps } from "../interfaces";
 
-export default function Quantity({ value=1, onQtyChange }: QuantityProps) {
+export default function Quantity({ value=1, onQtyChange, ...props }: QuantityProps) {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,

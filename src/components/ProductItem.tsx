@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Card,
   CardBody,
@@ -20,7 +19,8 @@ interface PProps{
 }
 
 export default function ProductItem({
-  product
+  product,
+  ...props
 }: PProps) {
   const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
   const [qty, setQty]= useState(1);

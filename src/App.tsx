@@ -24,7 +24,7 @@ function App() {
       >
         <Header onOpen={onOpen} />
         <Routes>
-          <Route path="/ShoppingCartProject" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />}>
             <Route index element={<Products products={products} />} />
             <Route

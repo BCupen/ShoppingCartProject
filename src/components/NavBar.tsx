@@ -9,7 +9,7 @@ export default function NavBar({onOpen}: NavBarProps) {
     <HStack spacing="67px" color="brand.cream">
       <Link
         as={RouterLink}
-        to="/ShoppingCartProject"
+        to="/"
         _hover={{
           color: "brand.tan",
         }}

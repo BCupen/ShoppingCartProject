@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import CartProvider from "./components/CartProvider";
 import { products } from "./assets/productData";
 import Products from "./components/Products";
+import Contact from "./pages/Contact";
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -58,6 +59,7 @@ function App() {
               }
             />
           </Route>
+          <Route path='/contact' element={<Contact />}/>
         </Routes>
         <Cart isOpen={isOpen} onClose={onClose} />
       </VStack>

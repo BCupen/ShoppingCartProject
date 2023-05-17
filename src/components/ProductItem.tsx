@@ -25,7 +25,12 @@ export default function ProductItem({
   const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
   const [qty, setQty]= useState(1);
 
-    const {key, name, cost, imgSrc, category} = product
+  const {key, name, cost, imgSrc, category} = product;
+
+  const setNewQty = (newQty: number) =>{
+    console.log('here');
+    setQty(newQty);
+  }
 
   const addToCart = () =>{
     const item = {
@@ -68,7 +73,7 @@ export default function ProductItem({
           >
             Add to Cart
           </Button>
-          <Quantity onQtyChange={setQty}/>
+          <Quantity value={qty} onQtyChange={setNewQty}/>
         </HStack>
       </CardFooter>
     </Card>

@@ -15,8 +15,8 @@ import { CartItem as ICartItem, CartProps } from "../interfaces";
 import { CartContext } from "./CartProvider";
 import CartItem from "./CartItem";
 
-export default function Cart({ isOpen, onClose, ...props }: CartProps) {
-  const [cart, addItemToCart] = useContext(CartContext);
+export default function Cart({ isOpen, onClose }: CartProps) {
+  const [cart] = useContext(CartContext);
   const [total, setTotal] = useState(0);
 
   const calculateTotal = () =>{

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Card,
   CardBody,
@@ -11,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ProductItemProps } from "../interfaces";
 import Quantity from "./Quantity";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "./CartProvider";
 
 interface PProps{
@@ -19,13 +20,12 @@ interface PProps{
 }
 
 export default function ProductItem({
-  product,
-  ...props
+  product
 }: PProps) {
   const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
   const [qty, setQty]= useState(1);
 
-    const {key, name, cost, imgSrc, category} = product
+    const {key, name, cost, imgSrc} = product
 
   const addToCart = () =>{
     const item = {

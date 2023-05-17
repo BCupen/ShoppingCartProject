@@ -1,15 +1,12 @@
 import ddf from './productImages/dry-dog-food.png';
 import wdf from './productImages/wet-dog-food.png';
 import dt from './productImages/dog-treats.png';
-import dtb from './productImages/dog-toy-balls.png';
 import dcf from './productImages/dry-cat-food.png';
 import wcf from './productImages/wet-cat-food.png';
 import cl  from './productImages/cat-litter.png';
-import ctm from './productImages/cat-toys.png';
 import ff from './productImages/fish-food.png';
 import ft from './productImages/fish-tank.png';
 
-import _ from "lodash"
 
 
 export const products = [

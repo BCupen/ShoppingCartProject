@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { CartItem as ICartItem } from "../interfaces";
 import Quantity from "./Quantity";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
 import { CartContext } from "./CartProvider";
 

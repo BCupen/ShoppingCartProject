@@ -1,4 +1,3 @@
-import { useState, createContext } from "react";
 import { VStack, useDisclosure } from "@chakra-ui/react";
 import Header from "./components/Header";
 import "./App.css";
@@ -25,7 +24,7 @@ function App() {
       >
         <Header onOpen={onOpen} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/ShoppingCartProject" element={<Home />} />
           <Route path="/shop" element={<Shop />}>
             <Route index element={<Products products={products} />} />
             <Route

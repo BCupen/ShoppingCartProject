@@ -73,7 +73,7 @@ export default function ProductItem({
           >
             Add to Cart
           </Button>
-          <Quantity onQtyChange={setNewQty}/>
+          <Quantity value={qty} onQtyChange={setNewQty}/>
         </HStack>
       </CardFooter>
     </Card>

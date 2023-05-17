@@ -8,8 +8,10 @@ import {
   Image,
 } from "@chakra-ui/react";
 import animalImg from "../assets/animals.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <VStack w="100vw" alignItems='stretch'>
       <HStack mx="8rem" mt="20">
@@ -40,6 +42,7 @@ export default function Home() {
                 bgColor: 'brand.tan',
                 border: 'brand.tan'
             }}
+            onClick={(e)=>navigate('/shop')}
           >
             Shop Now
           </Button>

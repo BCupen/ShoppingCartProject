@@ -16,7 +16,7 @@ import { CartContext } from "./CartProvider";
 import CartItem from "./CartItem";
 
 export default function Cart({ isOpen, onClose, ...props }: CartProps) {
-  const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
+  const [cart, addItemToCart] = useContext(CartContext);
   const [total, setTotal] = useState(0);
 
   const calculateTotal = () =>{

@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { VStack, Heading, HStack, Link} from "@chakra-ui/react";
+import { ShopProps } from "../interfaces";
+import { products } from "../assets/productData";
+import ProductItem from "../components/ProductItem";
 import { Link as RouterLink, useLocation} from "react-router-dom";
 import { Outlet } from "react-router-dom";
 

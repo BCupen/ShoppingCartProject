@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { ProductItemProps } from "../interfaces";
 import Quantity from "./Quantity";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartProvider";
 
 interface PProps{
@@ -25,7 +25,7 @@ export default function ProductItem({
   const [cart, getCartIndex, addItemToCart, updateItemQty, removeItem] = useContext(CartContext);
   const [qty, setQty]= useState(1);
 
-    const {key, name, cost, imgSrc} = product
+    const {key, name, cost, imgSrc, category} = product
 
   const addToCart = () =>{
     const item = {

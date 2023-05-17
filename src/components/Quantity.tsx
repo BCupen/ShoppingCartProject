@@ -8,7 +8,7 @@ export default function Quantity({ value=1, onQtyChange, ...props }: QuantityPro
       defaultValue: 1,
       min: 1,
       max: 10,
-      onChange: (_stringValue, numValue) => onQtyChange(numValue),
+      onChange: (stringValue, numValue) => onQtyChange(numValue),
       value: value
     });
 
